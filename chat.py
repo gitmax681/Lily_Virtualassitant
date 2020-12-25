@@ -6,6 +6,7 @@ from lib.speak import respond, speak
 from os import system
 from lib.commands import BOT_NAME, classify
 
+# checks for gpu support
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 system('clear')
 
