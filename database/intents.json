@@ -1,0 +1,266 @@
+{
+	"intents": [
+		{
+			"tag": "greeting",
+			"patterns": [
+				"Hi",
+				"Hey",
+				"How are you",
+				"Is anyone there?",
+				"Hello",
+				"Good day"
+			],
+			"responses": [
+				"Hey :-)",
+				"Hi there, what can I do for you?",
+				"Hi there, how can I help?"
+			],
+			"command": false,
+			"input":false
+		},
+		{
+			"tag": "goodbye",
+			"patterns": [
+				"Bye",
+				"See you later",
+				"Goodbye"
+			],
+			"responses": [
+				"See you later",
+				"Have a nice day",
+				"Bye! Come back again soon."
+			],
+			"command": false,
+			"input":false
+		},
+		{
+			"tag": "thanks",
+			"patterns": [
+				"Thanks",
+				"Thank you",
+				"That's helpful",
+				"Thank's a lot!"
+			],
+			"responses": [
+				"Happy to help!",
+				"Any time!",
+				"My pleasure"
+			],
+			"command": false,
+			"input": false
+		},
+		{
+			"tag": "joke",
+			"patterns": [
+				"Tell me a joke!",
+				"Tell me something funny!",
+				"Do you know a joke?"
+			],
+			"responses": [
+			],
+			"command": true,
+			"input": false
+		},
+		{
+			"tag": "author",
+			"patterns": [
+				"who made you?",
+				"tell me about your author"
+			],
+			"responses": [
+				"Cyberhoax was the one who made me",
+				"i was made by cyberhoax",
+				"Cyberhoax made me"
+			],
+			"command": false,
+			"input": false
+		},
+		{
+			"tag": "cyberhoax",
+			"patterns": [
+				"tell me about cyberhoax",
+				"who is cyberhoax",
+				"what do you know about cyberhoax"
+			],
+			"responses": [
+				"Cyberhoax is a 16year old software developer and a m l engineer",
+				"he is a software developer who made me",
+				"he is a speed cuber and a software developer"
+			],
+			"command": false,
+			"input": false
+		},
+		{
+			"tag": "birthday",
+			"patterns": [
+				"when is your birthday",
+				"when was you born?",
+				"do you remember when you were born",
+				"tell me when is your birthday"
+			],
+			"responses": [
+				"my birthday is on 5th august 2020",
+				"my first version was made on 5th august 2020",
+				"i was made on 5th august 2020"
+			],
+			"command": false,
+			"input": false
+		},
+		{
+			"tag": "about",
+			"patterns": [
+				"tell me about yourself",
+				"what do you do?",
+				"give me a self introduction"
+			],
+			"responses": [
+				"i am a chatbot made using artficial intelligence",
+				"i am a bot who's aim is to takeover human kind, just kidding. i want to be a good friend of human being",
+				"i am a chatbot and my name is dorothi"
+			],
+			"command": false,
+			"input": false
+		},
+		{
+			"tag": "browser",
+			"patterns": [
+				"open my browser",
+				"please open chrome",
+				"open search engine",
+				"please launch my browser"
+			],
+			"responses": [
+				"opening chrome",
+				"just a moment",
+				"opening web browser"
+			],
+			"command": true,
+			"input": false
+		},
+		{
+			"tag": "google",
+			"patterns": [
+				"open google in my browser",
+				"open google.com",
+				"open google's web page"
+			],
+			"responses": [
+				"opening google",
+				"wait a second",
+				"opening google.com"
+			],
+			"command":true,
+			"input": false
+		},
+		{
+			"tag":"youtube",
+			"patterns":[
+				"open youtube",
+				"open yt",
+				"open youtube in my browser"
+			],
+			"responses":[
+				"opening youtube",
+				"opening yt",
+				"opening youtube in a moment"
+			],
+			"command":true,
+			"input": false
+		},
+		{
+			"tag":"google_search",
+			"patterns":[
+				"i want to do a google search",
+				"can you do a google search for me",
+				"do a google search",
+				"i need to google something",
+				"search on google",
+				"google search"
+			],
+			"responses":[
+				"ok",
+				"enter what you want to search here",
+				"enter the query here",
+				"tell me what you want to search"
+		
+			],
+			"command":true,
+			"input": true
+		},
+		{
+			"tag": "getdistance",
+			"patterns":[
+
+			],
+			"responses":[
+
+			],
+			"command":true,
+			"input":false
+		},
+		{
+			"tag": "getaddress",
+			"patterns":[
+
+			],
+			"responses":[
+
+			],
+			"command":true,
+			"input":true
+
+		},
+		{
+			"tag": "getcooridinates",
+			"patterns":[
+
+			],
+			"responses":[
+
+			],
+			"command":true,
+			"input":true
+
+		},
+		{
+			"tag": "news",
+			"patterns":[
+				"tell me today's updates",
+				"what is todays news headlines",
+				"tell me todays news",
+				"what are the main news, today"
+			],
+			"responses":[
+				"todays updates are.",
+				"todays news are"
+			],
+			"command":true,
+			"input":false
+		},
+		{
+			"tag": "youtube_search",
+			"patterns":[
+				"let me do a youtube search",
+				"i need to search something on youtube",
+				"do a youtube search for me",
+				"can you search on youtube for me",
+				"search on youtube",
+				"youtube search"
+
+			],
+			"responses":[
+				"ok",
+				"enter what you want to search here",
+				"enter the query here",
+				"tell me what you want to search"
+			],
+			"command":true,
+			"input":true
+		}
+	],
+	"dontunderstand": [
+		"i can't understand, tell me once more",
+		"i can't understand tell me more clearly",
+		"sorry, i didn't got what you said, try again"
+	]
+}
