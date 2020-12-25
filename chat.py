@@ -11,6 +11,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 system('clear')
 
 
+# loads intents data
 with open('database/intents.json') as f:
     intents = json.load(f)
 
