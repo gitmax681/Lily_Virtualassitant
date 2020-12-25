@@ -15,6 +15,7 @@ system('clear')
 with open('database/intents.json') as f:
     intents = json.load(f)
 
+# loading data from saved file
 FILE = 'database/data.pth'    
 data = torch.load(FILE)
 input_size = data["input_size"]
