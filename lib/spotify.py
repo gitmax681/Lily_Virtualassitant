@@ -9,7 +9,7 @@ class Spotify:
         self.is_playing = True
 
         if not self.is_running:
-            Spotify.launch()
+            Spotify.launch(self)
 
     def launch(self):
         os.system("spotify 1>/dev/null 2>&1 &")

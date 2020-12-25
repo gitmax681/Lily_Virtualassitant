@@ -1,12 +1,18 @@
 import pyttsx3
 import random
 import json
+import os
 
 BOT_NAME = "Lily"
 
-with open("database/intents.json") as f:
-    intents = json.load(f)
-
+try:
+    with open("database/intents.json") as f:
+        intents = json.load(f)
+except FileNotFoundError:
+    current_path = os.getcwd()
+    rel_path = current_path.replace("lib", "database/intents.json")
+    with open(rel_path) as f:
+        intents = json.load(f)
 
 def speak(*text: str): # function used to convert text to speech
     

@@ -128,10 +128,6 @@ def spotify_controls(command):
     }
 
     for item in commands:
-        if command == item:
-            commands[item]()
-            
-        
         if command == "open_playlist" and command == item:
             all_uri = {
                 "mysongs": "spotify:playlist:2bkq3XxKuNDZyXEx62gyjl",
@@ -142,13 +138,16 @@ def spotify_controls(command):
 Saved Playlist
 ====================================""")
             for idx, x in enumerate(all_uri):
-                print(f"[{idx}] {x}")
+                print(f"[{idx+1}] {x}")
+            print("[x] exit")                
             print("====================================")
             print("Enter which playlist you want to play or give the uri for the playlist :)")
             while True:
                 data = input(">>")
-                if data.isnumeric():
-                    kv = {"3":"kpop hits", "2":"the untamed ost", "1":"mysongs"}
+                if data == 'x':
+                    exit()
+                elif data.isnumeric():
+                    kv = {str(index+1):name for index, name in enumerate(all_uri)}
                     try:
                         controller.open_playlist(all_uri[kv[data]])
                         break
@@ -157,6 +156,8 @@ Saved Playlist
                 else:
                     controller.open_playlist(data)
                     break
+        elif command == item:
+            commands[item]()  
 def classify(tag, input_necessory=False):
 
     tags_command = {
