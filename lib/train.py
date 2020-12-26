@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 import os 
+import tqdm
 
 try:
     from lib.nltk_utilis import tokenize, stem, bag_of_words
@@ -81,7 +82,7 @@ model = NeuralNet(input_size, hidden_size, output_size).to(device)
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(),lr=learning_rate)
 
-for epoch in range(num_epochs):
+for epoch in tqdm(range(num_epochs)):
     for(words, labels) in train_loader:
         words = words.to(device) 
         labels = labels.to(device)
