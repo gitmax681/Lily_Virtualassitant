@@ -151,6 +151,7 @@ def spotify_open_playist():
     print(f"""====================================
 Saved Playlist
 ====================================""")
+
     for idx, x in enumerate(all_uri):
         print(f"[{idx+1}] {x}")
     print("[x] exit")
@@ -172,6 +173,12 @@ Saved Playlist
         else:
             controller.open_playlist(data)
             break
+def spotify_next_music():
+    controller = Spotify()
+    controller.next()
+def spotify_default_song():
+    controller = Spotify()
+    controller.default_music()
 
 def classify(tag, input_necessory=False):
 
@@ -194,8 +201,8 @@ def classify(tag, input_necessory=False):
         "stop_music": spotify_stop_music,
         "play_music": spotify_play_music,
         "pause_music": spotify_pause_music,
-        "open_playlist": spotify_open_playist
-
+        "open_playlist": spotify_open_playist,
+        "default_songs": spotify_default_song
     }
     if tag in tags_command:
         if input_necessory == False:

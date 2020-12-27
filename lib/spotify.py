@@ -60,6 +60,12 @@ class Spotify:
             return True
         else:
             return False
+
+    def default_music(self):
+        default_uri = "spotify:playlist:0Zalm7sVYUtJMJFo9Vahb1"
+        if self.is_running:
+            os.system(f"qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri {self.URI}")
+            self.is_playing = True
             
     @staticmethod
     def check_running():
