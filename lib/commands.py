@@ -17,6 +17,16 @@ except ImportError:
 
 BOT_NAME = "Lily"
 
+
+def query_input():
+    while True:
+        inp = input(f"{BOT_NAME}(Enter your query): ")
+        if len(inp) >= 0:
+            return inp
+        else:
+            print(
+                "\033[1;31mEnter some value or print 'q' to continue chatting with me")
+
 def query_generate(query):
     raw = query
     symbols = {
@@ -173,23 +183,16 @@ def classify(tag, input_necessory=False):
         "getaddress": get_address,
         "getcooridinates": get_cooridinates,
         "translate": translate,
-        "wikipedia": wiki,
+        "wikipedia": wiki
 
     }
     if tag in tags_command:
         if input_necessory == False:
             tags_command[tag]()
         elif input_necessory == True:
-            while True:
-                inp = input(f"{BOT_NAME}(Enter your query): ")
-                if inp == 'q':
-                    break
-                if len(inp) != 0:
-                    tags_command[tag](inp)
-                    break
-                else:
-                    print(
-                        "\033[1;31mEnter some value or print 'q' to continue chatting with me")
-
+            try:
+                tags_command[tag](query_input())
+            except Exception as e:
+                raise e                
 
 spotify_controls("open_playlist")

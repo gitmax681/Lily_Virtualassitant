@@ -10,36 +10,36 @@ class Spotify:
 
         if not self.is_running:
             Spotify.launch(self)
+        time.sleep(3)
 
     def launch(self):
         os.system("spotify 1>/dev/null 2>&1 &")
         self.is_running = True
 
     def play(self):
-        time.sleep(1)
         if self.is_running:
             os.system('qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play')
             self.is_playing = True
-            return "process success"
+            return True
         else:
-            return "process failed spotify not initialized"
+            return False
 
     def pause(self):
         
         if self.is_playing:
             os.system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause")
             self.is_playing = False
-            return "process success"
+            return True
         else:
-            return "process failed spotify not initialized"
+            return False
 
     def next(self):
         if self.is_running:
             os.system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
             self.is_playing = True
-            return "process success"
+            return True
         else:
-            return "process failed spotify not initialized"
+            return False
             
     
     def play_from_start(self):
@@ -47,18 +47,18 @@ class Spotify:
         if self.is_running:
             os.system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
             self.is_playing = True
-            return "process success"
+            return True
         else:
-            return "process failed spotify not initialized"
+            return False
             
 
     def stop(self):
         if self.is_running:
             os.system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop")
             self.is_playing = False
-            return "process success"
+            return True
         else:
-            return "process failed spotify not initialized"
+            return False
             
 
     def open_playlist(self, URI):
@@ -66,9 +66,9 @@ class Spotify:
         if self.is_running:
             os.system(f"qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.OpenUri {self.URI}")
             self.is_playing = True
-            return "process success"
+            return True
         else:
-            return "process failed spotify not initialized"
+            return False
             
     @staticmethod
     def check_running():
