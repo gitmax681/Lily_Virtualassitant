@@ -20,26 +20,22 @@ class Spotify:
         if self.is_running:
             os.system('qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Play')
             self.is_playing = True
-            return True
+            
         else:
-            return False
+            Spotify.launch(self)            
+            time.sleep(7)
+            Spotify.play()
 
     def pause(self):
         
         if self.is_playing:
             os.system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Pause")
             self.is_playing = False
-            return True
-        else:
-            return False
 
     def next(self):
         if self.is_running:
             os.system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
             self.is_playing = True
-            return True
-        else:
-            return False
             
     
     def play_from_start(self):
@@ -47,18 +43,13 @@ class Spotify:
         if self.is_running:
             os.system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
             self.is_playing = True
-            return True
-        else:
-            return False
-            
+
 
     def stop(self):
         if self.is_running:
             os.system("qdbus org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop")
             self.is_playing = False
-            return True
-        else:
-            return False
+
             
 
     def open_playlist(self, URI):
