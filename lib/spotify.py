@@ -66,8 +66,7 @@ class Spotify:
         running = False
         for proc in psutil.process_iter():
             try:
-                pinfo = proc.as_dict(attrs=['pid', 'name', 'create_time'])
-                
+                pinfo = proc.as_dict(attrs=['pid', 'name', 'create_time'])   
                 if 'spotify' in pinfo['name'].lower() :
                     running = True
             except (psutil.NoSuchProcess, psutil.AccessDenied , psutil.ZombieProcess) :

@@ -126,48 +126,53 @@ def wiki(query):
     data = wikipedia.summary(query)
     return(data)
 
-def spotify_controls(command):
+def spotify_play_from_start():
     controller = Spotify()
-    commands = {
-        "play_music": controller.play,
-        "pause_music": controller.pause,
-        "stop_music": controller.stop, 
-        "open_playlist":controller.open_playlist,
-        "play_from_start":controller.play_from_start,
-        "open_spotify": controller.launch
-    }
+    controller.play_from_start()
+def spotify_launch():
+    controller = Spotify()
+    controller.launch()
+def spotify_stop_music():
+    controller = Spotify()
+    controller.stop()
+def spotify_play_music():
+    controller = Spotify()
+    controller.play()
+def spotify_pause_music():
+    controller = Spotify()
+    controller.pause()
+def spotify_open_playist():
+    controller = Spotify()
+    all_uri = {
+        "mysongs": "spotify:playlist:2bkq3XxKuNDZyXEx62gyjl",
+        "the untamed ost": "spotify:playlist:2c2QyDnzJH4pCeUJMogFvm",
+        "kpop hits": "spotify:playlist:0Zalm7sVYUtJMJFo9Vahb1"}
 
-    for item in commands:
-        if command == "open_playlist" and command == item:
-            all_uri = {
-                "mysongs": "spotify:playlist:2bkq3XxKuNDZyXEx62gyjl",
-                "the untamed ost": "spotify:playlist:2c2QyDnzJH4pCeUJMogFvm",
-                "kpop hits": "spotify:playlist:0Zalm7sVYUtJMJFo9Vahb1"}
-
-            print(f"""====================================
+    print(f"""====================================
 Saved Playlist
 ====================================""")
-            for idx, x in enumerate(all_uri):
-                print(f"[{idx+1}] {x}")
-            print("[x] exit")                
-            print("====================================")
-            print("Enter which playlist you want to play or give the uri for the playlist :)")
-            while True:
-                data = input(">>")
-                if data == 'x':
-                    exit()
-                elif data.isnumeric():
-                    kv = {str(index+1):name for index, name in enumerate(all_uri)}
-                    try:
-                        controller.open_playlist(all_uri[kv[data]])
-                        break
-                    except IndexError:
-                        print("invalid input")
-                else:
-                    controller.open_playlist(data)
-                    break
-        elif command == item:
-            commands[item]()  
+    for idx, x in enumerate(all_uri):
+        print(f"[{idx+1}] {x}")
+    print("[x] exit")
+    print("====================================")
+    print(
+        "Enter which playlist you want to play or give the uri for the playlist :)")
+    while True:
+        data = input(">>")
+        if data == 'x':
+            exit()
+        elif data.isnumeric():
+            kv = {str(index+1): name for index,
+                  name in enumerate(all_uri)}
+            try:
+                controller.open_playlist(all_uri[kv[data]])
+                break
+            except IndexError:
+                print("invalid input")
+        else:
+            controller.open_playlist(data)
+            break
+
 def classify(tag, input_necessory=False):
 
     tags_command = {
@@ -183,7 +188,13 @@ def classify(tag, input_necessory=False):
         "getaddress": get_address,
         "getcooridinates": get_cooridinates,
         "translate": translate,
-        "wikipedia": wiki
+        "wikipedia": wiki,
+        "play_from_start": spotify_play_from_start,
+        "open_spotify": spotify_launch,
+        "stop_music": spotify_stop_music,
+        "play_music": spotify_play_music,
+        "pause_music": spotify_pause_music,
+        "open_playlist": spotify_open_playist
 
     }
     if tag in tags_command:
