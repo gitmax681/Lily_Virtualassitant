@@ -212,5 +212,3 @@ def classify(tag, input_necessory=False):
                 tags_command[tag](query_input())
             except Exception as e:
                 raise e                
-
-spotify_controls("open_playlist")

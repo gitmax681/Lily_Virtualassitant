@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, Dataset
 import os 
-import tqdm
+from tqdm import tqdm
 
 try:
     from lib.nltk_utilis import tokenize, stem, bag_of_words
@@ -68,7 +68,7 @@ hidden_size = 8
 output_size = len(tags)
 input_size = len(x_train[0])
 learning_rate = 0.0001
-num_epochs = 5000
+num_epochs = 2000
 
 dataset = ChatDataset()     
 train_loader = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True, num_workers=1)

@@ -256,7 +256,22 @@
 			],
 			"command":true,
 			"input":true
+		},
+		{
+			"tag": "wikipedia",
+			"patterns":[
+				" i need information about something",
+				"give me a wikipedia snippet",
+				"give me a summary of something"],
+			"responses":[
+				"just a moment",
+				"ok"],
+			"command":true,
+			"input":true
+			
+			
 		}
+
 	],
 	"dontunderstand": [
 		"i can't understand, tell me once more",
