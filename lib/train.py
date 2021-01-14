@@ -67,7 +67,7 @@ batch_size = 8
 hidden_size = 8
 output_size = len(tags)
 input_size = len(x_train[0])
-learning_rate = 0.0001
+learning_rate = 0.001
 num_epochs = 2000
 
 dataset = ChatDataset()     
@@ -109,6 +109,6 @@ data = {
 }
 
 FILE = "data.pth" # name of the trained data 
-
-torch.save(data, FILE)
-print(f'training complete, file saved as {FILE}')
+FIN = path + FILE
+torch.save(data, FIN)
+print(f'training complete, file saved as {FILE} at {path}')
