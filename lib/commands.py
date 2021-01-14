@@ -124,8 +124,8 @@ def translate(fromlang, tolang, text):
     return translation
 def wiki(query):
     data = wikipedia.summary(query)
-    return(data)
-
+    print(data)
+    speak(data)
 def spotify_play_from_start():
     controller = Spotify()
     controller.play_from_start()
