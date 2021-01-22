@@ -17,7 +17,7 @@ with open('database/intents.json') as f:
 
 # loading data from saved file
 FILE = 'database/data.pth'    
-data = torch.load(FILE)
+data = torch.load(FILE, map_location=torch.device(device))
 input_size = data["input_size"]
 output_size = data["output_size"]
 hidden_size = data["hidden_size"]
@@ -30,7 +30,7 @@ model_state = data["model_state"]
 model = NeuralNet(input_size, hidden_size, output_size).to(device)
 model.load_state_dict(model_state)
 model.eval()
-
+if __name__ == '__main__':
 print("lets start chatting enter \"quit\" to exit")
 speak(f"hi, i am {BOT_NAME}, how can i help you?")
 while True:
