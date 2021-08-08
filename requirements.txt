@@ -28,7 +28,7 @@ log-symbols==0.0.14
 lxml==4.6.2
 nltk==3.5
 nodeenv==1.5.0
-numpy @ file:///mnt/tools/python_whl/python3.8/numpy-1.19.4-cp38-cp38-manylinux1_x86_64.whl
+numpy==1.19.4
 packaging==20.8
 pluggy==0.13.1
 pre-commit==2.9.3
